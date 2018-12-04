@@ -13,8 +13,8 @@ namespace FrequencyCalculator
         public static void Main(string[] args)
         {
             TasksDayOne task = new TasksDayOne();
-            Console.WriteLine(task.CalculateTotalFrequency());
-            //Console.WriteLine(task.ReturnFirstFrequencyReached());
+            //Console.WriteLine(task.CalculateTotalFrequency());
+            Console.WriteLine(task.ReturnFirstFrequencyReached());
                                                
         }
     }

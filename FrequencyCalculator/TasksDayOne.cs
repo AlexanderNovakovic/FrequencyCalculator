@@ -29,27 +29,23 @@ namespace FrequencyCalculator
             int[] lines = ReadLines();           
 
             int sum = 0;
-            List<int> numbers = new List<int>();
-            bool found = false;
+            var hashset = new HashSet<int>();            
 
-            for (int i = 0; i < lines.Length; i++)
+            while (true)
             {
-                if (!found)
-                {                     
-                    sum += lines[i];
-                    numbers.Add(sum);
-
-                    if (numbers.GroupBy(x => x).Any(g => g.Count() > 1))
-                        found = true;
-                }
-                else
+                foreach (int number in lines)
                 {
-                    break;
+                    sum += number;
+                    if (hashset.Contains(sum))
+                    {
+                        return sum;
+                    }
+                    else
+                    {
+                        hashset.Add(sum);
+                    }                                           
                 }
-            }
-
-            return sum;
-
+            }            
         }
 
         public int[] ReadLines()
