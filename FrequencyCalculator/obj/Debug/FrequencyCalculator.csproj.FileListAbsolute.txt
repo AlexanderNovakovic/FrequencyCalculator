@@ -1,0 +1,7 @@
+c:\users\storm\documents\visual studio 2015\Projects\adventofcode2018\day1\FrequencyCalculator\FrequencyCalculator\bin\Debug\FrequencyCalculator.exe.config
+c:\users\storm\documents\visual studio 2015\Projects\adventofcode2018\day1\FrequencyCalculator\FrequencyCalculator\bin\Debug\FrequencyCalculator.exe
+c:\users\storm\documents\visual studio 2015\Projects\adventofcode2018\day1\FrequencyCalculator\FrequencyCalculator\bin\Debug\FrequencyCalculator.pdb
+c:\users\storm\documents\visual studio 2015\Projects\adventofcode2018\day1\FrequencyCalculator\FrequencyCalculator\obj\Debug\FrequencyCalculator.csprojResolveAssemblyReference.cache
+c:\users\storm\documents\visual studio 2015\Projects\adventofcode2018\day1\FrequencyCalculator\FrequencyCalculator\obj\Debug\FrequencyCalculator.exe
+c:\users\storm\documents\visual studio 2015\Projects\adventofcode2018\day1\FrequencyCalculator\FrequencyCalculator\obj\Debug\FrequencyCalculator.pdb
+c:\users\storm\documents\visual studio 2015\Projects\adventofcode2018\day1\FrequencyCalculator\FrequencyCalculator\bin\Debug\Text.txt
