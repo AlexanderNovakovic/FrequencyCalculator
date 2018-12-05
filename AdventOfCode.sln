@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FrequencyCalculator", "FrequencyCalculator\FrequencyCalculator.csproj", "{D67353CD-F958-4F13-A06B-D0F54E691E68}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day1Tasks", "FrequencyCalculator\Day1Tasks.csproj", "{D67353CD-F958-4F13-A06B-D0F54E691E68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day2Tasks", "Day2Tasks\Day2Tasks.csproj", "{DA6FA3B6-FCC3-4626-8097-2A34F9F22559}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{D67353CD-F958-4F13-A06B-D0F54E691E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D67353CD-F958-4F13-A06B-D0F54E691E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D67353CD-F958-4F13-A06B-D0F54E691E68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA6FA3B6-FCC3-4626-8097-2A34F9F22559}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA6FA3B6-FCC3-4626-8097-2A34F9F22559}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA6FA3B6-FCC3-4626-8097-2A34F9F22559}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA6FA3B6-FCC3-4626-8097-2A34F9F22559}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

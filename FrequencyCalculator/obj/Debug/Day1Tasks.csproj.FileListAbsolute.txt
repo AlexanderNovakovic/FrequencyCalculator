@@ -1,0 +1,14 @@
+C:\Users\StorM\documents\visual studio 2015\Projects\adventofcode2018\day1\FrequencyCalculator\FrequencyCalculator\bin\Debug\day1_input.txt
+C:\Users\StorM\documents\visual studio 2015\Projects\adventofcode2018\day1\FrequencyCalculator\FrequencyCalculator\bin\Debug\FrequencyCalculator.exe.config
+C:\Users\StorM\documents\visual studio 2015\Projects\adventofcode2018\day1\FrequencyCalculator\FrequencyCalculator\bin\Debug\FrequencyCalculator.exe
+C:\Users\StorM\documents\visual studio 2015\Projects\adventofcode2018\day1\FrequencyCalculator\FrequencyCalculator\bin\Debug\FrequencyCalculator.pdb
+C:\Users\StorM\documents\visual studio 2015\Projects\adventofcode2018\day1\FrequencyCalculator\FrequencyCalculator\obj\Debug\Day1Tasks.csprojResolveAssemblyReference.cache
+C:\Users\StorM\documents\visual studio 2015\Projects\adventofcode2018\day1\FrequencyCalculator\FrequencyCalculator\obj\Debug\FrequencyCalculator.exe
+C:\Users\StorM\documents\visual studio 2015\Projects\adventofcode2018\day1\FrequencyCalculator\FrequencyCalculator\obj\Debug\FrequencyCalculator.pdb
+C:\Users\StorM\Documents\GitHub\FrequencyCalculator\FrequencyCalculator\bin\Debug\FrequencyCalculator.exe.config
+C:\Users\StorM\Documents\GitHub\FrequencyCalculator\FrequencyCalculator\obj\Debug\FrequencyCalculator.exe
+C:\Users\StorM\Documents\GitHub\FrequencyCalculator\FrequencyCalculator\obj\Debug\FrequencyCalculator.pdb
+C:\Users\StorM\Documents\GitHub\FrequencyCalculator\FrequencyCalculator\bin\Debug\day1_input.txt
+C:\Users\StorM\Documents\GitHub\FrequencyCalculator\FrequencyCalculator\bin\Debug\FrequencyCalculator.exe
+C:\Users\StorM\Documents\GitHub\FrequencyCalculator\FrequencyCalculator\bin\Debug\FrequencyCalculator.pdb
+C:\Users\StorM\Documents\GitHub\FrequencyCalculator\FrequencyCalculator\obj\Debug\Day1Tasks.csprojResolveAssemblyReference.cache
