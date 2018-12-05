@@ -7,7 +7,8 @@ namespace Day2Tasks
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine(CalculateChecksum("day2_input.txt"));            
+            // Console.WriteLine(CalculateChecksum("day2_input.txt"));
+            Console.WriteLine(ReturnCommonOfTwoStrings("day2_input.txt"));        
         }
     }
 }

@@ -5,10 +5,3 @@ C:\Users\StorM\documents\visual studio 2015\Projects\adventofcode2018\day1\Frequ
 C:\Users\StorM\documents\visual studio 2015\Projects\adventofcode2018\day1\FrequencyCalculator\Day2Tasks\obj\Debug\Day2Tasks.exe
 C:\Users\StorM\documents\visual studio 2015\Projects\adventofcode2018\day1\FrequencyCalculator\Day2Tasks\obj\Debug\Day2Tasks.pdb
 C:\Users\StorM\documents\visual studio 2015\Projects\adventofcode2018\day1\FrequencyCalculator\Day2Tasks\obj\Debug\Day2Tasks.csprojResolveAssemblyReference.cache
-C:\Users\StorM\Documents\GitHub\FrequencyCalculator\Day2Tasks\bin\Debug\Day2Tasks.exe.config
-C:\Users\StorM\Documents\GitHub\FrequencyCalculator\Day2Tasks\obj\Debug\Day2Tasks.exe
-C:\Users\StorM\Documents\GitHub\FrequencyCalculator\Day2Tasks\obj\Debug\Day2Tasks.pdb
-C:\Users\StorM\Documents\GitHub\FrequencyCalculator\Day2Tasks\bin\Debug\day2_input.txt
-C:\Users\StorM\Documents\GitHub\FrequencyCalculator\Day2Tasks\bin\Debug\Day2Tasks.exe
-C:\Users\StorM\Documents\GitHub\FrequencyCalculator\Day2Tasks\bin\Debug\Day2Tasks.pdb
-C:\Users\StorM\Documents\GitHub\FrequencyCalculator\Day2Tasks\obj\Debug\Day2Tasks.csprojResolveAssemblyReference.cache

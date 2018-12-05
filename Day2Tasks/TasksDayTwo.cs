@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using static Day2Tasks.FileExtensions;
 
 namespace Day2Tasks
@@ -7,7 +9,7 @@ namespace Day2Tasks
     {
         public static int CalculateChecksum(string input)
         {
-            string[] words = ReturnStringArrayFromFile(input);
+            List<string> words = ReturnStringArrayFromFile(input);
 
             int doubles = 0;
             int triples = 0;            
@@ -36,6 +38,47 @@ namespace Day2Tasks
                 }
             }
             return doubles * triples;
+        }
+
+        public static string ReturnCommonOfTwoStrings(string input)
+        {
+            string finalWord = "";
+                       
+            List<string> finalWords = ReturnListOfStringsWithOneDifferentCharacter(input);
+
+            foreach (string firstWord in finalWords)
+            {
+                foreach(string secondWord in finalWords)
+                {
+                    if(firstWord != secondWord)
+                    {
+                        var sameChars = firstWord.Intersect(secondWord);
+                        finalWord = String.Join("", sameChars);
+                    }
+                }                
+            }
+            return finalWord;
+        }
+
+        public static List<string> ReturnListOfStringsWithOneDifferentCharacter(string input)
+        {
+            List<string> words = ReturnStringArrayFromFile(input);
+
+            List<string> finalWords = new List<string> { };
+
+            foreach (string firstWord in words)
+            {
+                foreach (string secondWord in words)
+                {
+                    if (GetHammingDistance(firstWord, secondWord) == 1)
+                    {
+                        var sameChars = firstWord.Intersect(secondWord);
+                        string sameCharsWord = String.Join("", sameChars);
+                        finalWords.Add(sameCharsWord);
+                    }
+                }
+            }
+            return finalWords;
         }
     }
 }
