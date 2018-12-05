@@ -1,59 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static FrequencyCalculator.FileExtensions;
 
 namespace FrequencyCalculator
 {
-    public class TasksDayOne
+    public static class TasksDayOne
     {
 
-        public int CalculateTotalFrequency()
+        public static int CalculateTotalFrequency(string input) =>
+            GetIntArrayFromFile(input).Sum();
+
+        public static int ReturnFirstDoubleFrequencyReached(string input)
         {
-            int[] lines = ReadLines();
-            
-            int totalFrequency = 0;
+            int[] deltas = GetIntArrayFromFile(input);
 
-            foreach (int item in lines)
-            {
-                totalFrequency += item;
-            }
-
-            return totalFrequency;
-        }
-
-        public int ReturnFirstFrequencyReached()
-        {
-            int[] lines = ReadLines();           
-
-            int sum = 0;
-            var hashset = new HashSet<int>();            
+            int frequency = 0;
+            var numbers = new HashSet<int>();
 
             while (true)
             {
-                foreach (int number in lines)
+                foreach (int delta in deltas)
                 {
-                    sum += number;
-                    if (hashset.Contains(sum))
+                    frequency += delta;
+                    if (numbers.Contains(frequency))
                     {
-                        return sum;
+                        return frequency;
                     }
                     else
                     {
-                        hashset.Add(sum);
-                    }                                           
+                        numbers.Add(frequency);
+                    }
                 }
-            }            
-        }
-
-        public int[] ReadLines()
-        {
-            StreamReader reader = new StreamReader("Text.txt");
-            string line = reader.ReadToEnd();
-            int[] lines = line.Trim().Split('\n').Select(int.Parse).ToArray();           
-            return lines;
+            }
         }
     }
 }

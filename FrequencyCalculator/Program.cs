@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using static FrequencyCalculator.TasksDayOne;
 
 
 namespace FrequencyCalculator
@@ -11,11 +7,9 @@ namespace FrequencyCalculator
     public class Program
     {
         public static void Main(string[] args)
-        {
-            TasksDayOne task = new TasksDayOne();
-            //Console.WriteLine(task.CalculateTotalFrequency());
-            Console.WriteLine(task.ReturnFirstFrequencyReached());
-                                               
+        {                        
+            // Console.WriteLine(CalculateTotalFrequency("day1_input.txt"));
+            Console.WriteLine(ReturnFirstDoubleFrequencyReached("day1_input.txt"));
         }
     }
 }

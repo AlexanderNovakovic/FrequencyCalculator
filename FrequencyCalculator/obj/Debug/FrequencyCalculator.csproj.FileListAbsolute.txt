@@ -5,3 +5,11 @@ c:\users\storm\documents\visual studio 2015\Projects\adventofcode2018\day1\Frequ
 c:\users\storm\documents\visual studio 2015\Projects\adventofcode2018\day1\FrequencyCalculator\FrequencyCalculator\obj\Debug\FrequencyCalculator.exe
 c:\users\storm\documents\visual studio 2015\Projects\adventofcode2018\day1\FrequencyCalculator\FrequencyCalculator\obj\Debug\FrequencyCalculator.pdb
 c:\users\storm\documents\visual studio 2015\Projects\adventofcode2018\day1\FrequencyCalculator\FrequencyCalculator\bin\Debug\Text.txt
+C:\Users\aleksandar.novakovic\Documents\GitHub\FrequencyCalculator\FrequencyCalculator\bin\Debug\day1_input.txt
+C:\Users\aleksandar.novakovic\Documents\GitHub\FrequencyCalculator\FrequencyCalculator\bin\Debug\FrequencyCalculator.exe.config
+C:\Users\aleksandar.novakovic\Documents\GitHub\FrequencyCalculator\FrequencyCalculator\bin\Debug\FrequencyCalculator.exe
+C:\Users\aleksandar.novakovic\Documents\GitHub\FrequencyCalculator\FrequencyCalculator\bin\Debug\FrequencyCalculator.pdb
+C:\Users\aleksandar.novakovic\Documents\GitHub\FrequencyCalculator\FrequencyCalculator\obj\Debug\FrequencyCalculator.csprojAssemblyReference.cache
+C:\Users\aleksandar.novakovic\Documents\GitHub\FrequencyCalculator\FrequencyCalculator\obj\Debug\FrequencyCalculator.csproj.CoreCompileInputs.cache
+C:\Users\aleksandar.novakovic\Documents\GitHub\FrequencyCalculator\FrequencyCalculator\obj\Debug\FrequencyCalculator.exe
+C:\Users\aleksandar.novakovic\Documents\GitHub\FrequencyCalculator\FrequencyCalculator\obj\Debug\FrequencyCalculator.pdb
