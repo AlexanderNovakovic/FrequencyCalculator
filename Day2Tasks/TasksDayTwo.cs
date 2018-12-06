@@ -12,7 +12,7 @@ namespace Day2Tasks
             List<string> words = ReturnStringArrayFromFile(input);
 
             int doubles = 0;
-            int triples = 0;            
+            int triples = 0;
 
             foreach (string word in words)
             {
@@ -20,44 +20,42 @@ namespace Day2Tasks
                 bool tripleFound = false;
 
                 char[] characters = word.ToCharArray();
-                var appearanceArray = characters.GroupBy(x => x)
-                    .Where(g => g.Count() > 1)
-                    .Select(y => new { Element = y.Key, Counter = y.Count() })
-                    .ToArray();                
+                var appearanceArray = characters
+                                        .GroupBy(x => x)
+                                        .Where(g => g.Count() > 1)
+                                        .Select(g => new { Element = g.Key, Counter = g.Count() })
+                                        .ToArray();
 
                 foreach (var obj in appearanceArray)
-                {                   
-                    if (obj.Counter == 2 && !doubleFound) { 
+                {
+                    if (obj.Counter == 2 && !doubleFound)
+                    {
                         doubleFound = true;
                         doubles++;
                     }
-                    else if (obj.Counter == 3 && !tripleFound) { 
+                    else if (obj.Counter == 3 && !tripleFound)
+                    {
                         tripleFound = true;
                         triples++;
                     }
                 }
             }
+
             return doubles * triples;
         }
 
         public static string ReturnCommonOfTwoStrings(string input)
         {
             string finalWord = "";
-                       
+
             List<string> finalWords = ReturnListOfStringsWithOneDifferentCharacter(input);
 
-            foreach (string firstWord in finalWords)
+            foreach (var word in finalWords)
             {
-                foreach(string secondWord in finalWords)
-                {
-                    if(firstWord != secondWord)
-                    {
-                        var sameChars = firstWord.Intersect(secondWord);
-                        finalWord = String.Join("", sameChars);
-                    }
-                }                
+                Console.WriteLine(word);
             }
-            return finalWord;
+
+            return finalWords.First();
         }
 
         public static List<string> ReturnListOfStringsWithOneDifferentCharacter(string input)
@@ -66,18 +64,26 @@ namespace Day2Tasks
 
             List<string> finalWords = new List<string> { };
 
-            foreach (string firstWord in words)
+            for (int i = 0; i < words.Count - 1; i++)
             {
-                foreach (string secondWord in words)
+                string firstWord = words[i];
+                for (int j = i + 1; j < words.Count; j++)
                 {
+                    string secondWord = words[j];
                     if (GetHammingDistance(firstWord, secondWord) == 1)
                     {
-                        var sameChars = firstWord.Intersect(secondWord);
-                        string sameCharsWord = String.Join("", sameChars);
+                        var sameChars = Enumerable
+                            .Range(0, Math.Min(firstWord.Length, secondWord.Length))
+                            .Where(index => firstWord[index] == secondWord[index])
+                            .Select(index => firstWord[index]);
+
+                        string sameCharsWord = string.Join("", sameChars);
+
                         finalWords.Add(sameCharsWord);
                     }
                 }
             }
+
             return finalWords;
         }
     }

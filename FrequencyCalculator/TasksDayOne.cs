@@ -6,29 +6,26 @@ namespace FrequencyCalculator
 {
     public static class TasksDayOne
     {
+        public static int CalculateTotalFrequency(int[] deltas) =>
+            deltas.Sum();
 
-        public static int CalculateTotalFrequency(string input) =>
-            GetIntArrayFromFile(input).Sum();
-
-        public static int ReturnFirstDoubleFrequencyReached(string input)
+        public static int ReturnFirstDoubleFrequencyReached(int[] deltas)
         {
-            int[] deltas = GetIntArrayFromFile(input);
-
             int frequency = 0;
-            var numbers = new HashSet<int>();
+            var seen = new HashSet<int>();
 
             while (true)
             {
                 foreach (int delta in deltas)
                 {
                     frequency += delta;
-                    if (numbers.Contains(frequency))
+                    if (seen.Contains(frequency))
                     {
                         return frequency;
                     }
                     else
                     {
-                        numbers.Add(frequency);
+                        seen.Add(frequency);
                     }
                 }
             }

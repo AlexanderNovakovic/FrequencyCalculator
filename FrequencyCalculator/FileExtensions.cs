@@ -5,10 +5,15 @@ namespace FrequencyCalculator
 {
     public static class FileExtensions
     {
-        public static int[] GetIntArrayFromFile(string input) =>
+        public static int[] ReadIntArrayFromFile(string input) =>
             File
             .ReadAllLines(input)
             .Select(int.Parse)
+            .ToArray();
+
+        public static string[] ReadStringArrayFromFile(string input) => 
+            File
+            .ReadAllLines(input)
             .ToArray();
     }
 }
