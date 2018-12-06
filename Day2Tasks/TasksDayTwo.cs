@@ -7,10 +7,8 @@ namespace Day2Tasks
 {
     public static class TasksDayTwo
     {
-        public static int CalculateChecksum(string input)
-        {
-            List<string> words = ReturnStringArrayFromFile(input);
-
+        public static int CalculateChecksum(string[] words)
+        {            
             int doubles = 0;
             int triples = 0;
 
@@ -45,9 +43,7 @@ namespace Day2Tasks
         }
 
         public static string ReturnCommonOfTwoStrings(string input)
-        {
-            string finalWord = "";
-
+        {            
             List<string> finalWords = ReturnListOfStringsWithOneDifferentCharacter(input);
 
             foreach (var word in finalWords)
