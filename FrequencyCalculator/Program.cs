@@ -9,10 +9,12 @@ namespace FrequencyCalculator
         {
             int[] deltas = ReadIntArrayFromFile("day1_input.txt");
 
+            string[] words = ReadStringArrayFromFile("day2_input.txt");
+
             // Console.WriteLine(CalculateTotalFrequency(deltas));
             // Console.WriteLine(ReturnFirstDoubleFrequencyReached(deltas));
-            //Console.WriteLine(CalculateChecksum("day2_input.txt"));
-            ReturnCommonOfTwoStrings("day2_input.txt");
+            // Console.WriteLine(CalculateChecksum(words));
+            // ReturnCommonOfTwoStrings("day2_input.txt");
         }
     }
 }

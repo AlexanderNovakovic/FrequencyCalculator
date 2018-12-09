@@ -25,5 +25,20 @@ namespace UnitTests
 
             Assert.Equal(8296, CalculateChecksum(input));
         }
+
+        [Theory]
+        [InlineData(new string[] { "abcde", "fghij", "klmno", "pqrst", "fguij", "axcye", "wvxyz" }, "fgij")]
+        public void ReturnStringsWithOneDifferentCharacterTest(string[] input, string expected)
+        {
+            Assert.Equal(expected, ReturnStringWithOneDifferentCharacter(input));
+        }
+
+        [Fact]
+        public void ReturnStringsWithOneDifferentCharacterTestTwo()
+        {
+            string[] input = ReadStringArrayFromFile("day2_input.txt");
+
+            Assert.Equal("pazvmqbftrbeosiecxlghkwud", ReturnStringWithOneDifferentCharacter(input));
+        }
     }
 }

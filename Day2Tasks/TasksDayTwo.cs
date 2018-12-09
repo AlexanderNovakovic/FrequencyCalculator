@@ -9,14 +9,47 @@ namespace Day2Tasks
     {
         public static int CalculateChecksum(string[] words)
         {
-            
+            int doubles = 0;
+            int triples = 0;
+
+            foreach (string word in words)
+            {                   
+                    if (IsLetterAppearingForGivenNumberOfTimes(word, 2))
+                        doubles++;
+
+                    if (IsLetterAppearingForGivenNumberOfTimes(word, 3))
+                        triples++;                
+            }
+
+            return doubles * triples;
         }
 
-        public static List<string> ReturnListOfStringsWithOneDifferentCharacter(string input)
-        {
-            string[] words = ReadStringArrayFromFile(input);
+        public static bool IsLetterAppearingForGivenNumberOfTimes(string word, int numberOfAppearance)
+        {            
+            foreach (char letter in word)
+            {
+                if (CountLetterAppearance(word, letter) == numberOfAppearance)                    
+                    return true;
+            }
+                       
+            return false;
+        }
 
-            List<string> finalWords = new List<string> { };
+        public static int CountLetterAppearance(string word, char c)
+        {
+            int counter = 0;
+            foreach(char letter in word)
+            {
+                if (letter == c)
+                    counter++;
+            }
+
+            return counter;
+        }
+
+        public static string ReturnStringWithOneDifferentCharacter(string[] words)
+        {
+            string finalWord = "";
 
             for (int i = 0; i < words.Length - 1; i++)
             {
@@ -31,14 +64,18 @@ namespace Day2Tasks
                             .Where(index => firstWord[index] == secondWord[index])
                             .Select(index => firstWord[index]);
 
-                        string sameCharsWord = string.Join("", sameChars);
-
-                        finalWords.Add(sameCharsWord);
+                        finalWord = string.Join("", sameChars);
                     }
                 }
             }
 
-            return finalWords;
+            return finalWord;
         }
+
+        public static int GetHammingDistance(string firstWord, string secondWord) =>
+            Enumerable
+            .Range(0, Math.Min(firstWord.Length, secondWord.Length))
+            .Where(index => firstWord[index] != secondWord[index])
+            .Count();
     }
 }
