@@ -14,17 +14,17 @@ namespace Day2Tasks
 
             foreach (string word in words)
             {                   
-                    if (IsLetterAppearingForGivenNumberOfTimes(word, 2))
+                    if (IsLetterAppearingGivenNumberOfTimes(word, 2))
                         doubles++;
 
-                    if (IsLetterAppearingForGivenNumberOfTimes(word, 3))
+                    if (IsLetterAppearingGivenNumberOfTimes(word, 3))
                         triples++;                
             }
 
             return doubles * triples;
         }
 
-        public static bool IsLetterAppearingForGivenNumberOfTimes(string word, int numberOfAppearance)
+        public static bool IsLetterAppearingGivenNumberOfTimes(string word, int numberOfAppearance)
         {            
             foreach (char letter in word)
             {
