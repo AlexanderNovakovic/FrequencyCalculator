@@ -57,11 +57,18 @@
     <Content Include="day1_input.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="day3_input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Day2Tasks\Day2Tasks.csproj">
       <Project>{da6fa3b6-fcc3-4626-8097-2a34f9f22559}</Project>
       <Name>Day2Tasks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Day3Tasks\Day3Tasks.csproj">
+      <Project>{f6ec3abe-59d8-44c3-8058-515a98eb7bce}</Project>
+      <Name>Day3Tasks</Name>
     </ProjectReference>
     <ProjectReference Include="..\FileExtension\FileExtensions.csproj">
       <Project>{0a2e8a39-fde8-4333-821c-df132a05507b}</Project>

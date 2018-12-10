@@ -1,5 +1,4 @@
 ﻿using static FileExtensions.FileExtensions;
-using static Day2Tasks.TasksDayTwo;
 
 namespace FrequencyCalculator
 {
@@ -15,6 +14,7 @@ namespace FrequencyCalculator
             // Console.WriteLine(ReturnFirstDoubleFrequencyReached(deltas));
             // Console.WriteLine(CalculateChecksum(words));
             // ReturnCommonOfTwoStrings("day2_input.txt");
+            //Console.WriteLine(CalculateOverlappingSurface("day3_input.txt"));
         }
     }
 }
