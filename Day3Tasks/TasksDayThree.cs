@@ -48,7 +48,7 @@
             {
                 for (int j = claim.Rectangle.TopLeftY; j < claim.Rectangle.TopLeftY + claim.Rectangle.Height; j++)
                 {
-                    surface[i][j] += 1;
+                    surface[i][j]++;
                 }
             }
         }
@@ -95,9 +95,7 @@
         
         public static int ReturnTopLeftYFrom(string line) => int.Parse(line.Split('@')[1].Split(':')[0].Split(',')[1]);
 
-
         public static int ReturnWidthFrom(string line) => int.Parse(line.Split('@')[1].Split(':')[1].Split('x')[0].Trim());
-                    
         
         public static int ReturnHeightFrom(string line) => int.Parse(line.Split('@')[1].Split(':')[1].Split('x')[1]);
     }
