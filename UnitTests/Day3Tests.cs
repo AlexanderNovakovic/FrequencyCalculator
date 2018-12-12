@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System.Linq;
+using Xunit;
 using static Day3Tasks.TasksDayThree;
 using static FileExtensions.FileExtensions;
 
@@ -10,7 +11,7 @@ namespace UnitTests
         [InlineData(new string[] { "#1 @ 1,3: 4x4", "#2 @ 3,1: 4x4", "#3 @ 5,5: 2x2" }, 4)]
         public void CalculateOverlappingSurfaceTest(string[] input, int expected)
         {
-            Assert.Equal(expected, CalculateOverlappingSurface(input));
+            Assert.Equal(expected, CalculateOverlappingSurface(input.Select(ParseClaim).ToArray()));
         }
 
         [Fact]
@@ -18,14 +19,14 @@ namespace UnitTests
         {
             string[] input = ReadStringArrayFromFile("day3_input.txt");
 
-            Assert.Equal(101781, CalculateOverlappingSurface(input));
+            Assert.Equal(101781, CalculateOverlappingSurface(input.Select(ParseClaim).ToArray()));
         }
 
         [Theory]
         [InlineData(new string[] { "#1 @ 1,3: 4x4", "#2 @ 3,1: 4x4", "#3 @ 5,5: 2x2" }, 3)]
         public void FindNonOverlappingClaimIdTest(string[] input, int expected)
         {
-            Assert.Equal(expected, FindNonOverlappingClaimId(input));
+            Assert.Equal(expected, FindNonOverlappingClaimId(input.Select(ParseClaim).ToArray()));
         }
 
         [Fact]
@@ -33,7 +34,7 @@ namespace UnitTests
         {
             string[] input = ReadStringArrayFromFile("day3_input.txt");
 
-            Assert.Equal(909, FindNonOverlappingClaimId(input));
+            Assert.Equal(909, FindNonOverlappingClaimId(input.Select(ParseClaim).ToArray()));
         }
     }
 }

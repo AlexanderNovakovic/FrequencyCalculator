@@ -1,20 +1,23 @@
-﻿namespace Day3Tasks
+﻿using System.Collections.Generic;
+using static FileExtensions.FileExtensions;
+
+namespace Day3Tasks
 {
     public static class TasksDayThree
     {
-        public static int CalculateOverlappingSurface(string[] fileText)
+        public static int CalculateOverlappingSurface(Claim[] claims)
         {
-            int overlappingSurface = 0;            
-            
-            int[][] totalSurface = FillTotalSurfaceWithZeros(1000);
+            int overlappingSurface = 0;
 
-            MakeAllClaims(fileText, totalSurface);
-            
-            for (int i = 0; i < totalSurface.Length; i++)
-            {                
-                for (int j = 0; j < totalSurface[i].Length; j++)
+            int[][] fabric = CreateFabric(1000);
+
+            MakeClaims(fabric, claims);
+
+            for (int i = 0; i < fabric.Length; i++)
+            {
+                for (int j = 0; j < fabric[i].Length; j++)
                 {
-                    if (totalSurface[i][j] > 1)
+                    if (fabric[i][j] > 1)
                     {
                         overlappingSurface++;
                     }
@@ -24,59 +27,22 @@
             return overlappingSurface;
         }
 
-        public static int FindNonOverlappingClaimId(string[] fileText)
+        public static int FindNonOverlappingClaimId(Claim[] claims)
         {
-            int[][] totalSurface = FillTotalSurfaceWithZeros(1000);
+            int[][] totalSurface = CreateFabric(1000);
 
-            MakeAllClaims(fileText, totalSurface);
+            MakeClaims(totalSurface, claims);
 
-            foreach (string line in fileText)
+            foreach (Claim claim in claims)
             {
-                Claim claim = ReadClaimFromString(line);
-
-                if (!IsOverlapping(claim, totalSurface))
+                if (!IsOverlapping(totalSurface, claim))
                     return claim.Id;
             }
 
-            return 0;            
+            return 0;
         }
 
-        public static bool IsOverlapping(Claim claim, int[][] totalSurface)
-        {
-            for (int i = claim.Rectangle.TopLeftX; i < claim.Rectangle.TopLeftX + claim.Rectangle.Width; i++)
-            {
-                for(int j = claim.Rectangle.TopLeftY; j < claim.Rectangle.TopLeftY + claim.Rectangle.Height; j++)
-                {
-                    if(totalSurface[i][j] > 1)
-                        return true;
-                }
-            }
-
-            return false;
-        }
-
-        public static void MakeAllClaims(string[] input, int[][] surface)
-        {
-            foreach (string line in input)
-            {
-                Claim claim = ReadClaimFromString(line);
-
-                MakeClaim(surface, claim);
-            }
-        }
-
-        public static void MakeClaim(int[][] surface, Claim claim)
-        {
-            for (int i = claim.Rectangle.TopLeftX; i < claim.Rectangle.TopLeftX + claim.Rectangle.Width; i++)
-            {
-                for (int j = claim.Rectangle.TopLeftY; j < claim.Rectangle.TopLeftY + claim.Rectangle.Height; j++)
-                {
-                    surface[i][j]++;
-                }
-            }
-        }
-
-        public static int[][] FillTotalSurfaceWithZeros(int size)
+        private static int[][] CreateFabric(int size)
         {
             int[][] totalSurface = new int[size][];
 
@@ -92,13 +58,42 @@
             return totalSurface;
         }
 
-        public static Claim ReadClaimFromString(string line)
+        private static void MakeClaims(int[][] fabric, Claim[] claims)
         {
-            int id = ReturnIdFrom(line);
-            int topLeftX = ReturnTopLeftXFrom(line);
-            int topLeftY = ReturnTopLeftYFrom(line);
-            int width = ReturnWidthFrom(line);
-            int height = ReturnHeightFrom(line);
+            foreach (Claim claim in claims)
+                MakeClaim(fabric, claim);
+        }
+
+        private static void MakeClaim(int[][] surface, Claim claim)
+        {
+            for (int i = claim.Rectangle.TopLeftX; i < claim.Rectangle.TopLeftX + claim.Rectangle.Width; i++)
+            {
+                for (int j = claim.Rectangle.TopLeftY; j < claim.Rectangle.TopLeftY + claim.Rectangle.Height; j++)
+                {
+                    surface[i][j]++;
+                }
+            }
+        }
+
+        public static Claim[] ReadClaimsFromFile(string filePath)
+        {
+            List<Claim> claims = new List<Claim>();
+
+            foreach (string claimAsString in ReadStringArrayFromFile(filePath))
+            {
+                claims.Add(ParseClaim(claimAsString));
+            }
+
+            return claims.ToArray();
+        }
+
+        public static Claim ParseClaim(string line)
+        {
+            int id = ExtractId(line);
+            int topLeftX = ExtractTopLeftX(line);
+            int topLeftY = ExtractTopLeftY(line);
+            int width = ExtractWidth(line);
+            int height = ExtractHeight(line);
 
             Rectangle rectangle = new Rectangle(topLeftX, topLeftY, width, height);
 
@@ -107,34 +102,33 @@
             return claim;
         }
 
-        public static int ReturnIdFrom(string line)
+        private static int ExtractId(string line) => 
+            int.Parse(line.Split('@')[0].Substring(1).Trim());
+
+        private static int ExtractTopLeftX(string line) => 
+            int.Parse(line.Split('@')[1].Split(':')[0].Split(',')[0].Trim());
+
+        private static int ExtractTopLeftY(string line) =>
+            int.Parse(line.Split('@')[1].Split(':')[0].Split(',')[1]);
+
+        private static int ExtractWidth(string line) =>
+            int.Parse(line.Split('@')[1].Split(':')[1].Split('x')[0].Trim());
+
+        private static int ExtractHeight(string line) =>
+            int.Parse(line.Split('@')[1].Split(':')[1].Split('x')[1]);
+
+        private static bool IsOverlapping(int[][] totalSurface, Claim claim)
         {
-            string[] lineSplit = line.Split('@');
+            for (int i = claim.Rectangle.TopLeftX; i < claim.Rectangle.TopLeftX + claim.Rectangle.Width; i++)
+            {
+                for (int j = claim.Rectangle.TopLeftY; j < claim.Rectangle.TopLeftY + claim.Rectangle.Height; j++)
+                {
+                    if (totalSurface[i][j] > 1)
+                        return true;
+                }
+            }
 
-            int idElement = int.Parse(lineSplit[0].Substring(1).Trim());
-
-            return idElement;
+            return false;
         }
-        
-        public static int ReturnTopLeftXFrom(string line)
-        {
-            string[] lineSplit = line.Split('@');
-
-            string lineTwo = lineSplit[1];
-
-            string[] lineTwoSplit = lineTwo.Split(':');
-
-            string lineThree = lineTwoSplit[0];
-
-            string[] lineFour = lineThree.Split(',');
-
-            return int.Parse(lineFour[0].Trim());
-        }
-        
-        public static int ReturnTopLeftYFrom(string line) => int.Parse(line.Split('@')[1].Split(':')[0].Split(',')[1]);
-
-        public static int ReturnWidthFrom(string line) => int.Parse(line.Split('@')[1].Split(':')[1].Split('x')[0].Trim());
-        
-        public static int ReturnHeightFrom(string line) => int.Parse(line.Split('@')[1].Split(':')[1].Split('x')[1]);
     }
 }
