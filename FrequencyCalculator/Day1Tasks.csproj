@@ -60,6 +60,9 @@
     <Content Include="day3_input.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="day4_input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Day2Tasks\Day2Tasks.csproj">
@@ -69,6 +72,10 @@
     <ProjectReference Include="..\Day3Tasks\Day3Tasks.csproj">
       <Project>{f6ec3abe-59d8-44c3-8058-515a98eb7bce}</Project>
       <Name>Day3Tasks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Day4Tasks\Day4Tasks.csproj">
+      <Project>{3158e529-6b1f-466d-a005-f1d8c1adf036}</Project>
+      <Name>Day4Tasks</Name>
     </ProjectReference>
     <ProjectReference Include="..\FileExtension\FileExtensions.csproj">
       <Project>{0a2e8a39-fde8-4333-821c-df132a05507b}</Project>

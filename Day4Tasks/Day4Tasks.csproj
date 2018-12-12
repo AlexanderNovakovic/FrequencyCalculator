@@ -40,7 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Guard.cs" />
+    <Compile Include="LogBook.cs" />
+    <Compile Include="LogEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -50,7 +52,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="day4_input.txt" />
+    <Content Include="day4_input.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
