@@ -21,6 +21,43 @@ namespace Day4Tasks
             return sumOfMinutes;
         }
 
+
+
+        public static Dictionary<int, List<LogEntry>> GroupLogsByGuardId(List<LogEntry> logEntries)
+        {
+            var logsByGuardId = new Dictionary<int, List<LogEntry>>();                     
+
+            int runningGuardId = logEntries.First().ExtractGuardId();
+
+            foreach (LogEntry log in logEntries)
+            {
+                if (log.DoBeginsShift())
+                {
+                    runningGuardId = log.ExtractGuardId();
+                    if (!logsByGuardId.ContainsKey(runningGuardId))
+                    {
+                        logsByGuardId[runningGuardId] = new List<LogEntry>();
+                    }                    
+                }
+
+                logsByGuardId[runningGuardId].Add(log);
+            }
+
+            return logsByGuardId;
+        }
+
+        public static List<LogEntry> MidnightShifts(LogEntry[] logEntries)
+        {
+            List<LogEntry> midnightLogEntries = new List<LogEntry>();
+                        
+            foreach (LogEntry log in GetSortedLogs(logEntries))
+            {
+                midnightLogEntries.Add(log.StartingAtMidnightHour(log));
+            }
+
+            return midnightLogEntries;
+        }
+
         public static List<LogEntry> GetSortedLogs(LogEntry[] logEntries)
         {
             for (int i = 0; i < logEntries.Length - 1; i++)
@@ -38,16 +75,6 @@ namespace Day4Tasks
             }
 
             return logEntries.ToList();
-        }
-
-        public static Guard GetGuard(LogEntry logEntry)
-        {
-            int id = logEntry.ExtractGuardId();
-
-            if(id >= 0)
-            {
-
-            }
         }
 
         public static LogEntry GetLogEntry(string line) => 

@@ -11,7 +11,7 @@ namespace Day4Tasks
         public int Id { get; }        
         public List<LogEntry> LogEntries { get; }
 
-        public Guard(int id, int minutesAsleep, List<LogEntry> logEntries)
+        public Guard(int id, List<LogEntry> logEntries)
         {
             Id = id;            
             LogEntries = logEntries;
