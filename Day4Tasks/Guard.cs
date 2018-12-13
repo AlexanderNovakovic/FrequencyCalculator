@@ -8,14 +8,12 @@ namespace Day4Tasks
 {
     public class Guard
     {
-        public int Id { get; }
-        public int MinutesAsleep { get; }
+        public int Id { get; }        
         public List<LogEntry> LogEntries { get; }
 
         public Guard(int id, int minutesAsleep, List<LogEntry> logEntries)
         {
-            Id = id;
-            MinutesAsleep = minutesAsleep;
+            Id = id;            
             LogEntries = logEntries;
         }
     }

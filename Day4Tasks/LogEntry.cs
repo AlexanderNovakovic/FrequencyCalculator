@@ -33,6 +33,5 @@ namespace Day4Tasks
                 .Replace("Guard #", string.Empty)
                 .Replace(" begins shift", string.Empty));
         
-        public    
     }
 }

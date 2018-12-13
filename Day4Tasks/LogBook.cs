@@ -23,7 +23,21 @@ namespace Day4Tasks
 
         public static List<LogEntry> GetSortedLogs(LogEntry[] logEntries)
         {
-            return logEntries.ToList().Sort((l1, l2) => DateTime.Compare(l1.Timestamp, l2.Timestamp));
+            for (int i = 0; i < logEntries.Length - 1; i++)
+            {
+                int minIndex = i;
+                for (int j = i + 1; j < logEntries.Length; j++)
+                {
+                    if (logEntries[j].Timestamp < logEntries[minIndex].Timestamp)
+                        minIndex = j;
+                }
+
+                LogEntry temp = logEntries[i];
+                logEntries[i] = logEntries[minIndex];
+                logEntries[minIndex] = temp;
+            }
+
+            return logEntries.ToList();
         }
 
         public static Guard GetGuard(LogEntry logEntry)
