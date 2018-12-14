@@ -2,27 +2,59 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static FileExtensions.FileExtensions;
 
 namespace Day4Tasks
 {
     public static class LogBook
     {
-
-        public static int CalculateIdTimesMinute(LogEntry[] logEntries)
+        public static int ReturnMostAsleepGuardId(Dictionary<int, int> totalMinutesAsleepPerGuardId)
         {
-            int id = 0;
-            int sumOfMinutes = 0;
+            int maxTimeAsleep = 0;
+            int mostAsleepGuardId = 0;
 
-            
+            foreach (var item in totalMinutesAsleepPerGuardId)
+            {
+                if (item.Value > maxTimeAsleep)
+                {
+                    maxTimeAsleep = item.Value;
+                    mostAsleepGuardId = item.Key;
+                }                                        
+            }
 
-            return sumOfMinutes;
+            return mostAsleepGuardId;
         }
 
+        public static Dictionary<int, int> TotalMinutesAsleepPerGuardId(Dictionary<int, List<LogEntry>> guardLogs)
+        {
+            var totalMinutesAsleepPerGuard = new Dictionary<int, int>();
 
+            int sum = 0;
 
+            foreach (var item in guardLogs)
+            {
+                sum = TotalMinutesAsleep(item.Value.ToArray());
+
+                totalMinutesAsleepPerGuard[item.Key] = sum;
+            }
+
+            return totalMinutesAsleepPerGuard;
+        }
+
+        public static int TotalMinutesAsleep(LogEntry[] logs)
+        {
+            int sum = 0;
+
+            for (int i = 0; i < logs.Length; i++)
+            {
+                if (logs[i].Log == "falls asleep" && i < logs.Length - 1)
+                {
+                    sum += (int)(logs[i + 1].Timestamp - logs[i].Timestamp).TotalMinutes;
+                }
+            }
+
+            return sum;
+        }
+          
         public static Dictionary<int, List<LogEntry>> GroupLogsByGuardId(List<LogEntry> logEntries)
         {
             var logsByGuardId = new Dictionary<int, List<LogEntry>>();                     
@@ -46,11 +78,11 @@ namespace Day4Tasks
             return logsByGuardId;
         }
 
-        public static List<LogEntry> MidnightShifts(LogEntry[] logEntries)
+        public static List<LogEntry> MidnightShifts(this List<LogEntry> logEntries)
         {
             List<LogEntry> midnightLogEntries = new List<LogEntry>();
                         
-            foreach (LogEntry log in GetSortedLogs(logEntries))
+            foreach (LogEntry log in GetSortedLogs(logEntries.ToArray()))
             {
                 midnightLogEntries.Add(log.StartingAtMidnightHour(log));
             }
@@ -75,6 +107,18 @@ namespace Day4Tasks
             }
 
             return logEntries.ToList();
+        }
+
+        public static LogEntry[] GetLogEntries(string[] lines)
+        {
+            List<LogEntry> logs = new List<LogEntry>();
+
+            foreach (string line in lines)
+            {
+                logs.Add(GetLogEntry(line));
+            }
+
+            return logs.ToArray();
         }
 
         public static LogEntry GetLogEntry(string line) => 
